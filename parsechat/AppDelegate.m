@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Parse.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +17,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    ParseClientConfiguration *configuration = [ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        configuration.applicationId = @"parseChatID";
+        configuration.server = @"https://blooming-thicket-89345.herokuapp.com/parse";
+    }];
+    [Parse initializeWithConfiguration:configuration];
+    
+    if (PFUser.currentUser) {
+        NSLog(@"logged in");
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
+    }
     // Override point for customization after application launch.
     return YES;
 }
