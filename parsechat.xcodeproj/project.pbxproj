@@ -19,6 +19,9 @@
 		5DF159EE20F3D28F00498856 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF159ED20F3D28F00498856 /* LoginViewController.m */; };
 		5DF159F120F3D9CD00498856 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF159F020F3D9CD00498856 /* ChatViewController.m */; };
 		5DF159F420F3DE3100498856 /* ChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF159F320F3DE3100498856 /* ChatMessageCell.m */; };
+		5DF159F720F4025200498856 /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF159F620F4025200498856 /* Cat.m */; };
+		5DF159FA20F402EB00498856 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF159F920F402EB00498856 /* Person.m */; };
+		5DF159FD20F4039400498856 /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF159FC20F4039400498856 /* Dog.m */; };
 		8E33A01994E8C439EC2C251A /* libPods-parsechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2AD147100885A4D85A1ECBD /* libPods-parsechat.a */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,12 @@
 		5DF159F020F3D9CD00498856 /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		5DF159F220F3DE3100498856 /* ChatMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatMessageCell.h; sourceTree = "<group>"; };
 		5DF159F320F3DE3100498856 /* ChatMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatMessageCell.m; sourceTree = "<group>"; };
+		5DF159F520F4025200498856 /* Cat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cat.h; sourceTree = "<group>"; };
+		5DF159F620F4025200498856 /* Cat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cat.m; sourceTree = "<group>"; };
+		5DF159F820F402EB00498856 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		5DF159F920F402EB00498856 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		5DF159FB20F4039400498856 /* Dog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
+		5DF159FC20F4039400498856 /* Dog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dog.m; sourceTree = "<group>"; };
 		769B784FD90D44308F2A5E97 /* libPods-parsechatTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-parsechatTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B19422D3FBD00978C4E5533 /* Pods-parsechat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parsechat.release.xcconfig"; path = "Pods/Target Support Files/Pods-parsechat/Pods-parsechat.release.xcconfig"; sourceTree = "<group>"; };
 		DEAE8F72855CEB859D08778B /* Pods-parsechatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parsechatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-parsechatTests/Pods-parsechatTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +156,12 @@
 				5DF159F020F3D9CD00498856 /* ChatViewController.m */,
 				5DF159F220F3DE3100498856 /* ChatMessageCell.h */,
 				5DF159F320F3DE3100498856 /* ChatMessageCell.m */,
+				5DF159F520F4025200498856 /* Cat.h */,
+				5DF159F620F4025200498856 /* Cat.m */,
+				5DF159FB20F4039400498856 /* Dog.h */,
+				5DF159FC20F4039400498856 /* Dog.m */,
+				5DF159F820F402EB00498856 /* Person.h */,
+				5DF159F920F402EB00498856 /* Person.m */,
 			);
 			path = parsechat;
 			sourceTree = "<group>";
@@ -391,7 +406,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DF159F720F4025200498856 /* Cat.m in Sources */,
 				5DF159CA20F3D19600498856 /* main.m in Sources */,
+				5DF159FD20F4039400498856 /* Dog.m in Sources */,
+				5DF159FA20F402EB00498856 /* Person.m in Sources */,
 				5DF159F420F3DE3100498856 /* ChatMessageCell.m in Sources */,
 				5DF159BC20F3D19500498856 /* AppDelegate.m in Sources */,
 				5DF159F120F3D9CD00498856 /* ChatViewController.m in Sources */,

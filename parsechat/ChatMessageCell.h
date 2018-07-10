@@ -12,7 +12,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *chatMessageText;
 @property (weak, nonatomic) IBOutlet UIView *bubbleView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bubbleViewLeftConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bubbleViewRightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *receiveBubbleViewLeftConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *receiveBubbleViewRightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sendBubbleViewLeftConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sendBubbleViewRightConstraint;
+
 
 @end

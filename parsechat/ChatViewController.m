@@ -9,6 +9,9 @@
 #import "ChatViewController.h"
 #import "Parse.h"
 #import "ChatMessageCell.h"
+#import "Dog.h"
+#import "Cat.h"
+#import "Person.h"
 
 @interface ChatViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *chatMessageTextField;
@@ -29,6 +32,63 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refresh) userInfo:nil repeats:true];
 
+    [self addDog];
+    [self getDogs];
+}
+
+
+- (void)addCat {
+    Cat *cat = [Cat object];
+    cat.name = @"Haley's Cat";
+    
+    [cat saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        NSLog(@"Dog successfully saved");
+    }];
+}
+
+- (void)getCats {
+    PFQuery *query = [Cat query];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        for (Cat *cat in objects) {
+            NSLog(@"Cat named: %@", cat.name);
+        }
+    }];
+}
+
+- (void)addDog {
+    Dog *dog = [Dog object];
+    dog.name = @"Haley's Dog";
+    
+    [dog saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        NSLog(@"Dog successfully saved");
+    }];
+}
+
+- (void)getDogs {
+    PFQuery *query = [Dog query];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+      //  for (Dog *dog in objects) {
+         //   NSLog(@"Dog named: %@", dog.name);
+      //  }
+    }];
+}
+
+- (void)addPerson {
+    Person *person = [Person object];
+    person.name = @"Haley";
+    
+    [person saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        NSLog(@"Person successfully saved");
+    }];
+}
+
+- (void)getPersons {
+    PFQuery *query = [Person query];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        for (Person *person in objects) {
+            NSLog(@"Person named: %@", person.name);
+        }
+    }];
 }
 
 - (void)refresh {
@@ -55,24 +115,36 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChatMessageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"chatMessageCell"];
     
+    // clear constraints that control left/right alignment
+    // to allow us to set the correct alignment next
+    [cell removeConstraint:cell.sendBubbleViewLeftConstraint];
+    [cell removeConstraint:cell.sendBubbleViewRightConstraint];
+    [cell removeConstraint:cell.receiveBubbleViewLeftConstraint];
+    [cell removeConstraint:cell.receiveBubbleViewRightConstraint];
+    
     PFObject *message = self.messages[indexPath.row];
     PFUser *user = message[@"user"];
-    if (user == PFUser.currentUser) {
-        cell.bubbleViewLeftConstraint.active = NO;
-        NSLayoutConstraint *newLeftConstraint = [NSLayoutConstraint constraintWithItem:cell.bubbleView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:NSLayoutAttributeLeading multiplier:1 constant:15];
-        
-        cell.bubbleViewRightConstraint.active = NO;
-         NSLayoutConstraint *newRightConstraint = [NSLayoutConstraint constraintWithItem:cell.bubbleView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailing multiplier:1 constant:15];
-        [cell addConstraint:newLeftConstraint];
-        [cell addConstraint:newRightConstraint];
+    
+    if ([user.username isEqual:PFUser.currentUser.username]) {
+        // add right-align constraints
+        cell.usernameLabel.textAlignment = NSTextAlignmentRight;
+        [cell addConstraint:cell.sendBubbleViewLeftConstraint];
+        [cell addConstraint:cell.sendBubbleViewRightConstraint];
     }
-    else if (user != nil) {
+    else {
+        // add left-align constraints
+        cell.usernameLabel.textAlignment = NSTextAlignmentLeft;
+        [cell addConstraint:cell.receiveBubbleViewLeftConstraint];
+        [cell addConstraint:cell.receiveBubbleViewRightConstraint];
+    }
+    
+    if (user != nil) {
         cell.usernameLabel.text = user.username;
-        // cell.usernameLabel.text = message[@"user"].username;
     }
     else {
         cell.usernameLabel.text = @"User";
     }
+    
     cell.chatMessageText.text = message[@"text"];
     cell.bubbleView.layer.cornerRadius = 16;
     return cell;

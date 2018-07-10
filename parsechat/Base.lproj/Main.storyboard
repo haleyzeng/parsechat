@@ -109,7 +109,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ah-vj-ddm">
-                                                    <rect key="frame" x="15" y="30.5" width="68" height="68"/>
+                                                    <rect key="frame" x="15" y="31" width="68" height="68"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWZ-Kp-nVo">
                                                             <rect key="frame" x="10" y="6" width="48" height="56"/>
@@ -132,16 +132,26 @@
                                                 <constraint firstAttribute="trailing" secondItem="Af5-iw-XJd" secondAttribute="trailing" constant="15" id="C3r-WU-P3F"/>
                                                 <constraint firstItem="0ah-vj-ddm" firstAttribute="leading" secondItem="QeI-gs-Qvv" secondAttribute="leading" constant="15" id="Mmv-Jb-T2t"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0ah-vj-ddm" secondAttribute="trailing" constant="15" id="PIe-yY-3a0"/>
+                                                <constraint firstItem="0ah-vj-ddm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QeI-gs-Qvv" secondAttribute="leading" constant="15" id="d9s-Ta-MsX"/>
                                                 <constraint firstAttribute="bottom" secondItem="0ah-vj-ddm" secondAttribute="bottom" constant="6" id="est-1o-4Le"/>
                                                 <constraint firstItem="Af5-iw-XJd" firstAttribute="leading" secondItem="QeI-gs-Qvv" secondAttribute="leading" constant="15" id="ndb-U3-xSz"/>
                                                 <constraint firstItem="Af5-iw-XJd" firstAttribute="top" secondItem="QeI-gs-Qvv" secondAttribute="top" constant="6" id="ubJ-FZ-uIg"/>
+                                                <constraint firstAttribute="trailing" secondItem="0ah-vj-ddm" secondAttribute="trailing" constant="15" id="xLZ-1P-Hrl"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="d9s-Ta-MsX"/>
+                                                    <exclude reference="xLZ-1P-Hrl"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="bubbleView" destination="0ah-vj-ddm" id="8gb-1i-0xz"/>
-                                            <outlet property="bubbleViewLeftConstraint" destination="Mmv-Jb-T2t" id="bue-jo-yo0"/>
-                                            <outlet property="bubbleViewRightConstraint" destination="PIe-yY-3a0" id="lUE-r2-RUY"/>
                                             <outlet property="chatMessageText" destination="OWZ-Kp-nVo" id="OJj-6d-nCU"/>
+                                            <outlet property="receiveBubbleViewLeftConstraint" destination="Mmv-Jb-T2t" id="zSS-iI-qeU"/>
+                                            <outlet property="receiveBubbleViewRightConstraint" destination="PIe-yY-3a0" id="feT-Sl-fBw"/>
+                                            <outlet property="sendBubbleViewLeftConstraint" destination="d9s-Ta-MsX" id="Bbf-pt-gmZ"/>
+                                            <outlet property="sendBubbleViewRightConstraint" destination="xLZ-1P-Hrl" id="F0L-tE-WMe"/>
                                             <outlet property="usernameLabel" destination="Af5-iw-XJd" id="ekZ-My-wKk"/>
                                         </connections>
                                     </tableViewCell>
